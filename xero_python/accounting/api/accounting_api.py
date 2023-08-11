@@ -15706,6 +15706,9 @@ class AccountingApi(object):
         self,
         xero_tenant_id,
         report_id,
+        bank_account_id=None,
+        from_date=None,
+        to_date=None,
         _return_http_data_only=True,
         _preload_content=True,
         _request_timeout=None,
@@ -15739,6 +15742,15 @@ class AccountingApi(object):
         }
 
         query_params = []
+
+        if bank_account_id is not empty:
+            query_params.append(("bankAccountID", bank_account_id))
+
+        if from_date is not empty:
+            query_params.append(("FromDate", from_date))
+
+        if to_date is not empty:
+            query_params.append(("ToDate", to_date))
 
         header_params = {
             "xero-tenant-id": xero_tenant_id,
